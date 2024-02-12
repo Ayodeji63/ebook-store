@@ -1,3 +1,4 @@
 
 forge-std/=lib/forge-std/src/
 @bnb-chain/greenfield-contracts-sdk/=lib/greenfield-contracts-sdk/contracts/
+foundry-devops/=lib/foundry-devops/

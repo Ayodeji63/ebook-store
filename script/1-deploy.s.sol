@@ -8,6 +8,15 @@ import "../src/deployerEbook.sol";
 import "../src/Ebook.sol";
 import "../src/EbookChainToken.sol";
 
+//   operator balance: 0
+//   init owner: 0xb1f540756bE3c06eBbcAC15d701C5477F271a7a0
+//   operator address: 0xb1f540756bE3c06eBbcAC15d701C5477F271a7a0
+//   Private key address:  0xb1f540756bE3c06eBbcAC15d701C5477F271a7a0
+//   Deployer address: 0xa930E6eCafBA86E1B805D2e814d52De9904b0362
+//   implEbookStore address: 0xc95e198b1dbFD1f98e53258eb8bd0B5900307464
+//   proxyAdmin address: 0x95D40e5A509606df169894C96C2FF101c7d48062
+//   proxyEbookStore address: 0xE906E1382E31f830a97aCBA071BB9AdB0505B098
+
 contract DeployScript is Script {
     uint256 public constant callbackGasLimit = 1_000_000;
     uint8 public constant failureHandleStrategy = 0; // BlockOnFail

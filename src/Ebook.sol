@@ -49,6 +49,15 @@ contract EbookStore is AccessControl, BucketApp, ObjectApp, GroupApp {
     address public groupToken;
     address public memberToken;
 
+     enum BucketVisibilityTypeEb {
+        Unspecified,
+        PublicRead,
+        Private,
+        Inherit // If the bucket Visibility is inherit, it's finally set to private.
+    }
+
+    
+
     // tokenId => series name
     mapping(uint256 => string) public seriesName;
     // series name => tokenId
@@ -81,6 +90,8 @@ contract EbookStore is AccessControl, BucketApp, ObjectApp, GroupApp {
     address public constant BUCKET_HUB_EB = 0x5BB17A87D03620b313C39C24029C94cB5714814A;
     address public constant OBJECT_HUB_EB = 0x1b059D8481dEe299713F18601fB539D066553e39;
     address public constant GROUP_HUB_EB = 0x50B3BF0d95a8dbA57B58C82dFDB5ff6747Cc1a9E;
+    
+
 
     function initialize(
         address _owner,
@@ -131,17 +142,13 @@ contract EbookStore is AccessControl, BucketApp, ObjectApp, GroupApp {
         }
     }
 
-    //  enum BucketVisibilityType {
-    //     Unspecified,
-    //     PublicRead,
-    //     Private,
-    //     Inherit // If the bucket Visibility is inherit, it's finally set to private.
-    // }
+  
     /**
      * @dev Create a new series.
      *
      * Assuming the sp provider's info will be provided by the front-end.
      */
+
     function createSeries(
         string calldata name,
         BucketStorage.BucketVisibilityType visibility,
