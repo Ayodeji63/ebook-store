@@ -64,7 +64,7 @@ contract DeployEbook {
         ProxyAdmin(proxyAdmin).transferOwnership(_owner);
         require(ProxyAdmin(proxyAdmin).owner() == _owner, "invalid proxyAdmin owner");
 
-        // 3. Init marketplace
+        // 3. Init EbookStore
         EbookStore(payable(proxyEbookStore)).initialize(_owner, _fundWallet, _tax, _callbackGasLimit, _failureHandleStrategy,ebookToken);
     }
 

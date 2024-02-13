@@ -160,6 +160,20 @@ contract EbookStore is AccessControl, BucketApp, ObjectApp, GroupApp {
         require(bytes(name).length > 0, string.concat("EbookShop: ", ERROR_INVALID_NAME));
         require(seriesId[name] == 0, string.concat("EbookShop: ", ERROR_RESOURCE_EXISTED));
 
+        _createBucket(msg.sender, name, visibility, paymentAddress, spAddress, expireHeight, sig, chargedReadQuota);
+    }
+
+    function createSeriesFB(
+        string calldata name,
+        BucketStorage.BucketVisibilityType visibility,
+        uint64 chargedReadQuota,
+        address spAddress,
+        uint256 expireHeight,
+        bytes calldata sig
+    ) external payable {
+        require(bytes(name).length > 0, string.concat("EbookShop: ", ERROR_INVALID_NAME));
+        require(seriesId[name] == 0, string.concat("EbookShop: ", ERROR_RESOURCE_EXISTED));
+
         bytes memory _callbackData = bytes(name); // use name as callback data
         _createBucket(
             msg.sender,
@@ -175,6 +189,7 @@ contract EbookStore is AccessControl, BucketApp, ObjectApp, GroupApp {
             _callbackData,
             callbackGasLimit
         );
+      
     }
 
     /**

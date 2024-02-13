@@ -44,6 +44,9 @@ endif
 deploy:
 	@forge script script/1-deploy.s.sol:DeployScript $(NETWORK_ARGS)
 
+deploy2:
+	forge script script/2-deploy.s.sol:DeployScript $(NETWORK_ARGS)
+
 createSeries:
 	@forge script script/Interaction.s.sol:CreateSeries $(NETWORK_ARGS)
 
